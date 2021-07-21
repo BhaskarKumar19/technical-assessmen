@@ -1,5 +1,7 @@
 package elxsi.assessment.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Customer {
+public class Customer implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,13 +29,13 @@ public class Customer {
 	private Boolean status;
 
 	@Column
-	private Double phone;
+	private Long phone;
 
 	public Customer() {
 
 	}
 
-	public Customer(Integer id, String name, String email, Boolean status, Double phone) {
+	public Customer(Integer id, String name, String email, Boolean status, Long phone) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -71,12 +75,11 @@ public class Customer {
 		this.status = status;
 	}
 
-	public Double getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(Double phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
-
 }

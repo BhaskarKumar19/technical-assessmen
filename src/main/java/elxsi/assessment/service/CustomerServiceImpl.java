@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import elxsi.assessment.entity.Customer;
@@ -23,6 +24,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	CustomerMapper customerMapper;
 
 	@Override
+	@Cacheable(value = "customer", key = "#customerId")
 	public CustomerDto getCustomerById(int customerId) {
 		Optional<Customer> customer = customerRepository.findById(customerId);
 		if (customer.isEmpty()) {
@@ -32,10 +34,10 @@ public class CustomerServiceImpl implements ICustomerService {
 			throw new InactiveCustomerException("Inactive Customer Exception");
 		}
 		return customerMapper.customerEntityToDto(customer.get());
-
 	}
 
 	@Override
+	@Cacheable(value = "Allcustomers")
 	public List<CustomerDto> getAllCustomers() {
 		return customerMapper.customerEntityToDto(customerRepository.findAll());
 	}

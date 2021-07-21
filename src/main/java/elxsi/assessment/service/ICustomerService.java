@@ -6,10 +6,14 @@ import elxsi.assessment.models.CustomerDto;
 
 public interface ICustomerService {
 
-    CustomerDto getCustomerById(int customerId);
+	CustomerDto getCustomerById(int customerId);
+
 	List<CustomerDto> getAllCustomers();
+
 	CustomerDto updateCustomer(CustomerDto customer);
+
 	CustomerDto createNewCustomer(CustomerDto customer);
-    void deleteCustomerById(int customerId);
-	
+
+	void deleteCustomerById(int customerId);
+
 }

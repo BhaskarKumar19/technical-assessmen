@@ -5,8 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import elxsi.assessment.entity.Customer;
 
-
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Integer>{
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
 }

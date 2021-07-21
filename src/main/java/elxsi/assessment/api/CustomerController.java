@@ -25,7 +25,9 @@ public class CustomerController {
 
 	@GetMapping(path = "/{customerNumber}", produces = MediaType.APPLICATION_JSON_VALUE)
 	CustomerDto getCustomer(@PathVariable Integer customerNumber) {
-		return customerService.getCustomerById(customerNumber);
+		CustomerDto tmp = customerService.getCustomerById(customerNumber);
+
+		return tmp;
 	}
 
 	@PostMapping(path = "/", consumes = "application/json", produces = "application/json")

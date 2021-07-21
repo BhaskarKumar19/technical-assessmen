@@ -1,22 +1,25 @@
 package elxsi.assessment.models;
 
+import java.io.Serializable;
+
 /**
  * @author bhaskarkumar
  *
  */
-public class CustomerDto {
+public class CustomerDto implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String name;
 	private String email;
 	private Boolean status;
-	private Double phone;
+	private Long phone;
 
 	public CustomerDto() {
 
 	}
 
-	public CustomerDto(Integer id, String name, String email, Boolean status, Double phone) {
+	public CustomerDto(Integer id, String name, String email, Boolean status, Long phone) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -56,14 +59,12 @@ public class CustomerDto {
 		this.status = status;
 	}
 
-	public Double getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(Double phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
-
-	
 
 }
